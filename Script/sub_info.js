@@ -40,7 +40,7 @@ function getUserInfo(url) {
 }
 
 function getDataUsage(info) {
-  return Object.fromEntries(info.match(/\w+=\d+/g).map(item => item.split("=")).map(([k, v]) => [k,parseInt(v)]));
+  return Object.fromEntries(info.match(/\w+=[\d.eE+]+/g).map(item => item.split("=")).map(([k, v]) => [k, parseInt(Number(v))]));
 }
 
 function bytesToSize(bytes) {
