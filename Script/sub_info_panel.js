@@ -75,9 +75,9 @@ async function getDataUsage(url) {
   }
   return Object.fromEntries(
     info
-      .match(/\w+=\d+/g)
+      .match(/\w+=[\d.eE+]+/g)
       .map((item) => item.split("="))
-      .map(([k, v]) => [k, parseInt(v)])
+      .map(([k, v]) => [k, parseInt(Number(v))])
   );
 }
 
